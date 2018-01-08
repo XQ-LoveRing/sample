@@ -11,7 +11,6 @@
                 @include('shared._errors')
                 <form action="{{route('users.store')}}" method="post">
                     {{csrf_field()}}
-
                     <div class="form-group">
                         <label for="name"> 名称：</label>
                         <input type="text" name="name" value="{{old('name')}}" id="name" class="form-control">
