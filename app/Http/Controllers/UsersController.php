@@ -39,6 +39,7 @@ class UsersController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        Auth::login($user);
         //flash 只在下一次会话时有效  对应 键：值
         session()->flash('success','欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show', [$user]);
