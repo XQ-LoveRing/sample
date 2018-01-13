@@ -5,21 +5,21 @@
             <nav>
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check())
-                        <li><a href="#">用户列表</a></li>
+                        <li><a href="{{route('users.index')}}">用户列表</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 {{Auth::user()->name}} <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('users.show',Auth::user()->id)}}">个人中心</a></li>
-                                <li><a href="#">编写资料</a></li>
+                                <li><a href="{{route('users.edit',Auth::user()->id)}}">编写资料</a></li>
                                 <li class="divider"></li>
                                 <li>
                                     <a href="#" id="logout">
                                         <form action="{{route('logout')}}" method="post">
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
-                                            <input type="submit" class="btn btn-danger" name="button" value="退出">
+                                            <input class="btn btn-danger" type="submit" value="退出" name="button">
                                         </form>
                                     </a>
                                 </li>
